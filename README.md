@@ -1,5 +1,5 @@
 # raylew_searchengine_server
-Chinese Internet Search Engine Based on Java
+Chinese Internet Search Engine Based on Java.
 A simple search engine,including web crawler,preprocess and query response modules,suit for search engine fresh learner.
 It's divided into two applications,one for server side,one for client side.
 #server side
