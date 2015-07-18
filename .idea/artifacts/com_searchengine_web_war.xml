@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="com-searchengine-web:war">
+    <output-path>$PROJECT_DIR$/com-searchengine-web/target</output-path>
+    <root id="archive" name="com-searchengine-web.war">
+      <element id="artifact" artifact-name="com-searchengine-web:war exploded" />
+    </root>
+  </artifact>
+</component>

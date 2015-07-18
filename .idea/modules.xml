@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/com-searchengine-domain/com-searchengine-domain.iml" filepath="$PROJECT_DIR$/com-searchengine-domain/com-searchengine-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com-searchengine-preprocess/com-searchengine-preprocess.iml" filepath="$PROJECT_DIR$/com-searchengine-preprocess/com-searchengine-preprocess.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com-searchengine-service/com-searchengine-service.iml" filepath="$PROJECT_DIR$/com-searchengine-service/com-searchengine-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com-searchengine-spider/com-searchengine-spider.iml" filepath="$PROJECT_DIR$/com-searchengine-spider/com-searchengine-spider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com-searchengine-utils/com-searchengine-utils.iml" filepath="$PROJECT_DIR$/com-searchengine-utils/com-searchengine-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com-searchengine-web/com-searchengine-web.iml" filepath="$PROJECT_DIR$/com-searchengine-web/com-searchengine-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/raylew_searchengine_server.iml" filepath="$PROJECT_DIR$/raylew_searchengine_server.iml" />
+    </modules>
+  </component>
+</project>
