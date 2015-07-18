@@ -1,0 +1,77 @@
+#macro (markup $tag $visible $body $attributes)
+#if($visible)
+<${tag}#foreach($entry in $attributes.entrySet()) ${entry.key}="${entry.value}"#end
+#if(!$body) /#end>
+#end
+#if($body)$!bodyContent#if($visible)</${tag}>#end
+#end
+#end
+
+#macro(pageBar $clickFunction $totalRow  $currentPage $totalPage)
+##pageCount
+#if($totalPage > 3)
+	#set($start = $currentPage - 1)
+    #if($start < 1)
+        #set($start = 1)
+    #end
+    #set($end = $start + 2)
+    #if($end > $totalPage)
+        #set($end = $totalPage)
+        #set($start = $end - 2)
+    #end
+#else
+    #set($start = 1)
+    #set($end = $totalPage)
+#end
+    #set($_prePage = $start - 1)
+    #set($_nextPage = $end + 1)
+    #set($prePage = $currentPage - 1)
+    #set($nextPage = $currentPage + 1)
+
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody>
+        <tr>
+            <td align="left" width="56"></td>
+            <td width="104" align="center">&nbsp;</td>
+            <td width="819" align="right">
+                <div class="m clearfix">
+                ##页码显示规则
+                #if($totalRow>0)
+                    <div class="pagin fr">
+                        <span class="text">共$!{totalRow}条记录</span>
+                        <span class="text">共$!{totalPage}页</span>
+                        #if($currentPage>1)
+                            <a href="#" onclick="${clickFunction}(1)">首页<b></b></a> 
+							<a href="#" onclick="${clickFunction}(${prePage})">上一页<b></b></a>
+                        #else
+                            <span class="prev-disabled">首页<b></b></span> <span class="prev-disabled">上一页</span>
+                        #end
+                        #if($_prePage>0)
+                            <span class="text">...</span>
+                        #end
+                        #foreach($idx in [$start..$end])
+                            #if($idx==$currentPage)
+                                <a class="current" href="javascript:;">$idx</a>
+                            #else
+                                <a href="#" onclick="${clickFunction}(${idx});">$idx</a>
+                            #end
+                        #end
+                        #if($_nextPage<=$totalPage )
+                            <span class="text">...</span>
+                        #end
+                        #if($currentPage<$totalPage)
+                            <a href="#" onclick="${clickFunction}(${nextPage})">下一页<b></b></a>
+							<a href="#" onclick="${clickFunction}(${totalPage})" class="next">末页</a>
+                        #else
+                            <span class="prev-disabled">下一页<b></b></span> <span class="prev-disabled">末页</span>
+                        #end
+                    </div>
+                #else
+                    <div class="pagin fr"><span class="text">暂无相关记录</span></div>
+                #end
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+#end

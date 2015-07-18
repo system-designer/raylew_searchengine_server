@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.searchengine.dao.PageWordDao">
+	<resultMap id="PageWordMap" type="PageWord">
+	    <id property="id" column="id" />
+		<result property="position" column="position" />
+		<result property="matchTimes" column="matchTimes" />
+		<result property="tfidf" column="tfidf" />
+		<result property="pid" column="pid" />
+		<result property="url" column="url"/>
+		<result property="title" column="title"/>
+		<result property="charset" column="charset"/>
+		<result property="keywords" column="keywords"/>
+		<result property="description" column="description"/>
+		<result property="savePath" column="savePath"/>
+		<result property="wid" column="wid" />
+		<result property="name" column="name" />
+	    <result property="createdTime" column="createdTime"/>
+	</resultMap>
+
+	<select id="getListByWordIdList" resultMap="PageWordMap">
+		SELECT
+			`forwardindex`.`id`, `forwardindex`.`position`, `forwardindex`.`matchTimes`,
+  			`forwardindex`.`tfidf`, `webpage`.`id` AS `pid`, `webpage`.`url`,
+  			`webpage`.`title`, `webpage`.`charset`, `webpage`.`keywords`,
+  			`webpage`.`description`, `webpage`.`savePath`, `webpage`.`createdTime`,
+			`word`.`id` AS `wid`,`word`.`name`
+		FROM
+  			`forwardindex` INNER JOIN
+  			`webpage` ON `forwardindex`.`pid` = `webpage`.`id` INNER JOIN
+  			`word` ON `forwardindex`.`wid` = `word`.`id`
+		WHERE `word`.`id` IN
+		<foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+		ORDER BY `forwardindex`.`tfidf` desc
+		LIMIT 0,100
+	</select>
+
+	<select id="getListBy" parameterType="map" resultMap="PageWordMap">
+		SELECT
+		`forwardindex`.`id`, `forwardindex`.`position`, `forwardindex`.`matchTimes`,
+		`forwardindex`.`tfidf`, `webpage`.`id` AS `pid`, `webpage`.`url`,
+		`webpage`.`title`, `webpage`.`charset`, `webpage`.`keywords`,
+		`webpage`.`description`, `webpage`.`savePath`, `webpage`.`createdTime`,
+		`word`.`id` AS `wid`,`word`.`name`
+		FROM
+		`forwardindex` INNER JOIN
+		`webpage` ON `forwardindex`.`pid` = `webpage`.`id` INNER JOIN
+		`word` ON `forwardindex`.`wid` = `word`.`id`
+		ORDER BY `forwardindex`.`tfidf` desc
+		LIMIT #{offset},#{size}
+	</select>
+
+</mapper>

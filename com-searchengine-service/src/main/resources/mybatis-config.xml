@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">  
+<configuration>
+	<settings>
+	    <setting name="lazyLoadingEnabled" value="false" />
+	</settings>
+
+    <typeAliases>
+		<!-- 账号功能模块 -->
+		<typeAlias alias="UserInfo" type="com.searchengine.domain.UserInfo" />
+		<!-- 页面 -->
+		<typeAlias alias="WebPage" type="com.searchengine.domain.WebPage" />
+		<!--网站-->
+		<typeAlias alias="Website" type="com.searchengine.domain.Website" />
+		<!--正排索引-->
+		<typeAlias alias="ForwardIndex" type="com.searchengine.domain.ForwardIndex" />
+		<!--倒排索引-->
+		<typeAlias alias="InvertedIndex" type="com.searchengine.domain.InvertedIndex" />
+		<!--正排索引视图-->
+		<typeAlias alias="PageWord" type="com.searchengine.domain.PageWord" />
+		<!--词语-->
+		<typeAlias alias="Word" type="com.searchengine.domain.Word" />
+		<!--word document frequency-->
+		<typeAlias alias="WordDF" type="com.searchengine.domain.WordDF" />
+    	<!-- 页面索引 -->
+    	<typeAlias alias="PageIndex" type="com.searchengine.domain.PageIndex" />
+		<!--查询记录-->
+		<typeAlias alias="Query" type="com.searchengine.domain.Query" />
+		<!--用户查询记录-->
+		<typeAlias alias="UserQuery" type="com.searchengine.domain.UserQuery" />
+    </typeAliases>
+
+    <mappers>
+		<!-- 账号功能模块 -->
+		<mapper resource="mysql/UserInfoMapper.xml" />
+		<!-- 页面 -->
+		<mapper resource="mysql/WebPageMapper.xml" />
+		<!--正排索引-->
+		<mapper resource="mysql/ForwardIndexMapper.xml" />
+		<!--正排索引视图-->
+		<mapper resource="mysql/PageWordMapper.xml" />
+		<!--词语-->
+		<mapper resource="mysql/WordMapper.xml" />
+    	<!-- 页面索引 -->
+		<mapper resource="mysql/PageIndexMapper.xml" />
+		<!--查询记录-->
+		<mapper resource="mysql/QueryMapper.xml" />
+		<!--用户查询记录-->
+		<mapper resource="mysql/UserQueryMapper.xml" />
+    </mappers>
+
+</configuration>

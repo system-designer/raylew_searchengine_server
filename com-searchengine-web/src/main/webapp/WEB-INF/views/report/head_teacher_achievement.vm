@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+		<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.min.js"></script>
+		<link href="/static/css/style.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div class="welcome_text">
+			<br>
+			截至<span>$current_time</span>，我们已为您记录了:
+		</div>
+		<br>
+		<br>
+		<!--
+		<div class="details">
+			<span id="encourage_img"><img src="/static/img/icon/5009/0.png" width="60" height="60" alt="" /></span>
+			<span class="achi_text"> 激励学生: </span> 
+			<span class="achi_num">${encourage_num}</span>
+			<br>
+			<br>
+			<span id="corrected_img"><img src="/static/img/icon/5009/1.png" width="60" height="60" alt=""></span>
+			<span class="achi_text"> 指正学生: </span> 
+			<span class="achi_num">${corrected_num}</span>
+			<br>
+			<br>
+			<span id="comment_img"><img src="/static/img/icon/5009/14.png" width="60" height="60" alt=""></span>
+			<span class="achi_text"> 评语记录: </span> 
+			<span class="achi_num">${comment_num}</span>
+			<br>
+			<br>
+			<span id="finished_img"><img src="/static/img/icon/5009/3.png" width="60" height="60" alt=""></span>
+			<span class="achi_text"> 布置作业: </span> 
+			<span class="achi_num">${finished_num}</span>
+			<br>
+			<br>
+			<span id="classroom_img"><img src="/static/img/icon/5009/4.png" width="60" height="60" alt=""></span>
+			<span class="achi_text"> 上课节数: </span> 
+			<span class="achi_num">${classroom_num}</span>
+			<br>
+			<br>
+			<span id="timelong_img"><img src="/static/img/icon/5009/5.png" width="60" height="60" alt=""></span>
+			<span class="achi_text"> 上课时长: </span> 
+			<span class="achi_num">${timelong_num}分钟</span>
+			<br>
+			<br>
+			<span id="notice_img"><img src="/static/img/icon/5009/7.png" width="60" height="60" alt=""></span>
+			<span class="achi_text"> 公告次数: </span> 
+			<span class="achi_num">${notice_num}</span>
+			<br>	
+		</div>
+		-->
+		<table width="260" border = "0" height="420" align="center" cellspacing="5" >
+			<tr valign="middle"><td width="50"><img src="/static/img/icon/5009/0.png" width="40" height="40" alt=""></td><td><font size="3px">激励学生:</font></td><td style="text-align:right;"><font size="4px">${encourage_num}</font></td></tr>
+			<tr valign="middle"><td width="50"><img src="/static/img/icon/5009/1.png" width="40" height="40" alt=""></td><td><font size="3px">指正学生:</font></td><td style="text-align:right;"><font size="4px">${corrected_num}</font></td></tr>
+			<tr valign="middle"><td width="50"><img src="/static/img/icon/5009/14.png" width="40" height="40" alt=""></td><td><font size="3px">评语记录:</font></td><td style="text-align:right;"><font size="4px">${comment_num}</font></td></tr>
+			<tr valign="middle"><td width="50"><img src="/static/img/icon/5009/3.png" width="40" height="40" alt=""></td><td><font size="3px">布置作业:</font></td><td style="text-align:right;"><font size="4px">${finished_num}</font></td></tr>
+			<tr valign="middle"><td width="50"><img src="/static/img/icon/5009/4.png" width="40" height="40" alt=""></td><td><font size="3px">上课节数:</font></td><td style="text-align:right;"><font size="4px">${classroom_num}</font></td></tr>
+			<tr valign="middle"><td width="50"><img src="/static/img/icon/5009/7.png" width="40" height="40" alt=""></td><td><font size="3px">公告次数:</font></td><td style="text-align:right;"><font size="4px">${notice_num}</font></td></tr>
+		</table>
+	</body>
+</html>

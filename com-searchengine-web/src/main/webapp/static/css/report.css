@@ -1,0 +1,152 @@
+@CHARSET "UTF-8";
+* {
+    font-family: "微软雅黑";
+    margin: 0px;
+    padding: 0px;
+    color:#595854;    
+}
+.div_tab {
+    border-top: 1px solid #d9d2d2;
+    height: 80px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.div_tabContent {
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 21px;
+}
+
+.aTab {
+    width: 50%;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    cursor: pointer;
+    text-decoration-line:none; 
+    background-color: #86c1ef; 
+}
+
+.selected {
+    background-color: #2288D9;
+    color: #fff;
+}
+div a:hover{color:#fff; text-decoration:none}
+.divGroup {
+    border-top: 1px solid #d9d2d2;
+    color: #474F54;
+    overflow: hidden;
+    margin-left:20px;
+    margin-right:20px;
+    padding-top:20px;
+}
+
+.divGroupTitle {
+    margin: 0px auto;
+    text-align: center;
+    margin-bottom:10px;
+}
+
+.divItem {
+   	float: left;
+    margin: 12px;
+    position: relative;
+}
+
+.divImg {
+    position: absolute;
+    left: 38px;
+    top: -18px;
+    background-image: url(../images/yuan.png);
+    width: 35px;
+    height: 35px;
+    text-align: center;    
+    line-height: 35px;
+    color: #fff;
+    filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";  
+-moz-background-size:100% 100%;  
+    background-size:100% 100%;   
+}
+
+.imgPicture {
+    width: 50px;
+    height: 67px;
+    border: 3px solid #B7D8F6;
+}
+
+.div_commentFrame {
+    margin: -24px 20px 0px 20px;
+    text-align: center;
+    background-color: #fff;
+    display:none;
+}
+.div_commentItem{
+	background-color: #E6E9ED;
+	padding:10px; 
+	text-align:left;
+ 	overflow:visible;
+  	margin-left:20px;
+    margin-top:20px;
+}
+.div_left {
+    border-left: 10px solid #AAB1B7;
+    margin-left: 30px;
+    overflow: hidden;
+}
+.levelNameGood {
+    color: #ED5565;
+    font-size:15px;
+}
+.levelNameBad {
+    color: #48CFAD;
+    font-size:15px;
+}
+.teacherName {
+    color: #2288D9;
+    font-size:15px;    
+}
+.divCommentImg { 
+	width: 35px;
+    height: 35px;
+    margin-left: -53px;
+    margin-top:-25px;
+    z-index: 1;
+    position: absolute;
+    filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";  
+	-moz-background-size:100% 100%;
+    background-size:100% 100%;
+}
+.divBadImg {
+    background-image: url(../images/bad.png?v=20140829)   ;
+}
+.divNormalImg {
+    background-image: url(../images/normal.png?v=20140829)  ;
+}
+.divGoodImg { 
+	background-image: url(../images/good.png?v=20140829)  ;	
+}
+.date {
+    color: #B3B9BE;
+ }
+.metricTextGroup {
+    border-bottom:1px solid #AAB2B7;
+    height:41px;
+    vertical-align:middle;
+    line-height:40px;
+    padding:5px;
+}
+.metricTextCount {
+	font-weight:800;
+	font-size:25px
+}
+.badColor {
+    color:#00BF97;
+}
+.goodColor {
+    color:#EB67A2;
+    }
+.sp_comment{
+	padding:15px;
+}

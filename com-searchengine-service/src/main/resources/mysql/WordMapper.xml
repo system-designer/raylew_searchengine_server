@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.searchengine.dao.WordDao">
+    <resultMap id="WordMap" type="Word">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="type" column="type"/>
+        <result property="category" column="category"/>
+        <result property="docFrequency" column="docFrequency"/>
+        <result property="createdTime" column="createdTime"/>
+        <result property="lastUpdatedTime" column="lastUpdatedTime"/>
+    </resultMap>
+    <sql id="sqlColumns">
+		id,name,type,category,docFrequency,createdTime,lastUpdatedTime
+	</sql>
+
+    <insert id="add" parameterType="Word">
+        insert into Word (<include refid="sqlColumns"/>)
+        values (#{id}, #{name}, #{type},#{category},#{docFrequency},#{createdTime},#{lastUpdatedTime})
+    </insert>
+
+    <select id="getById" parameterType="long" resultMap="WordMap">
+        select
+        <include refid="sqlColumns"/>
+        from Word
+        where id=#{id}
+        limit 1
+    </select>
+
+    <select id="getList" resultMap="WordMap">
+        select
+        <include refid="sqlColumns"/>
+        from Word where docFrequency>0
+        order by id
+    </select>
+
+    <!--用于统计模块-->
+    <select id="getListBy" parameterType="map" resultMap="WordMap">
+        select
+        <include refid="sqlColumns"/>
+        from Word
+        order by docFrequency desc
+        limit #{offset},#{size}
+    </select>
+
+    <select id="getCount" resultType="long">
+		select count(id) from Word
+	</select>
+
+    <update id="update" parameterType="Word">
+		update word set
+		docFrequency = #{docFrequency},
+		lastUpdatedTime = now()
+		where id = #{id}
+	</update>
+
+    <update id="deleteById" parameterType="long">
+		delete from Word where id=#{id}
+	</update>
+</mapper>

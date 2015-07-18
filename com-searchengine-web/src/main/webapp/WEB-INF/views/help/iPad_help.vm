@@ -1,0 +1,111 @@
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			<div class="accordion" id="accordion2">
+				<div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse"
+							data-parent="#accordion2" href="#collapseOne">
+							1、这一版本提供哪些主要功能？ </a>
+					</div>
+					<div id="collapseOne" class="accordion-body collapse"
+						style="height: 0px;">
+						<div class="accordion-inner">
+							1.界面清爽，全新体验；<br> 2.提供简洁的课程表，可以快速查看自己的课表，从此再也不用找不到上课地点和时间了；<br>
+							3.提供“开始上课”功能，快速对学生在课上的表现记录下来，只需要一点选操作就可以完成记录；<br>
+							4.提供特色“随机点名”功能，使用随机点名，随机出现一个同学，你永远不知道下一个随机出现的将会是哪一位同学；<br>
+							5.可以随时随地进行对学生进行评价；<br> 6.查看学生被评价的历史记录，让你清晰的看见每一个学生的行为变化；<br>
+							7.提供直观的统计图表数据，让你一眼就能了解整个班级，每一个学生的数据情况；<br>
+							8.提供“老师成就榜”，您的每一次付出我们都为您记录下来，让您随时查看您的付出。<br>
+						</div>
+					</div>
+				</div>
+				<div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse"
+							data-parent="#accordion2" href="#collapseTwo">
+							2、在课表中如何切换时间查看？ </a>
+					</div>
+					<div id="collapseTwo" class="accordion-body collapse"
+						style="height: 0px;">
+						<div class="accordion-inner">
+							目前提供了每日的课程表，通过左右滑动可以查看其他日期的课表，你还可以通过往下拉，进入月视图，快速选择日期进行查看课程表。周课表敬请期待…<br>
+						</div>
+					</div>
+				</div>
+				<div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse"
+							data-parent="#accordion2" href="#collapseThree"> 3、如何给学生进行评价？
+						</a>
+					</div>
+					<div id="collapseThree" class="accordion-body collapse"
+						style="height: 0px;">
+						<div class="accordion-inner">
+							1.从课表选择课程进入，上课模式可以快速对学生进行评价，或者查看某一学生的评价记录时，也可以对学生进行评价；<br>
+							2.从班级页面，选择某一班级进入，在评价学生的记录列表中，选择学生，也提供评价的按钮可以进行评价。<br>
+						</div>
+					</div>
+				</div>
+				<div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse"
+							data-parent="#accordion2" href="#collapseFour">
+							4、给学生评价错了，该如何修改？ </a>
+					</div>
+					<div id="collapseFour" class="accordion-body collapse"
+						style="height: 0px;">
+						<div class="accordion-inner">
+							1.在上课模式中，给学生评价错了，则可以在当时通过撤销上一次评价按钮来取消；<br>
+							2.在评价记录中，查看学生的评价历史记录时，点击评价的记录，则可以重新评价该条记录。<br>
+						</div>
+					</div>
+				</div>
+				<div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse"
+							data-parent="#accordion2" href="#collapseFive"> 5、如何查看评价报告数据？
+						</a>
+					</div>
+					<div id="collapseFive" class="accordion-body collapse"
+						style="height: 0px;">
+						<div class="accordion-inner">
+							1.从课表进入，查看评价报表，可以查看全班和每一个学生的统计报表数据；<br>
+							2.从班级进入，查看评价报表，也可以查看全班和每一个学生的统计报表数据。<br>
+						</div>
+					</div>
+				</div>
+				<div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse"
+							data-parent="#accordion2" href="#collapseSix"> 6、密码忘记了怎么办？ </a>
+					</div>
+					<div id="collapseSix" class="accordion-body collapse"
+						style="height: 0px;">
+						<div class="accordion-inner">
+							登陆时忘记密码了，您可以通过学校管理员重新设置密码。<br>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse"
+							data-parent="#accordion2" href="#collapseSeven"> 7、如何查看我的成就榜？
+						</a>
+					</div>
+					<div id="collapseSeven" class="accordion-body collapse"
+						style="height: 0px;">
+						<div class="accordion-inner">
+							在我的页面里，选择“我的成就榜”，即可查看自己的成就记录。<br>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</div>
+</body>

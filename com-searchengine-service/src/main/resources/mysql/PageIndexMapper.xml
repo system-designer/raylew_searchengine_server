@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.searchengine.dao.PageIndexDao">
+	<resultMap id="PageIndexMap" type="PageIndex">
+	    <id property="id" column="id" />
+	    <result property="url" column="url"/>
+	    <result property="content" column="content"/>
+	    <result property="offset" column="offset"/>
+		<result property="raws" column="raws"/>
+	    <result property="createdTime" column="createdTime"/>
+	    <result property="lastUpdatedTime" column="lastUpdatedTime"/>
+	</resultMap>
+	<sql id="sqlColumns">
+		id,url,content,offset,raws,createdTime,lastUpdatedTime
+	</sql>
+	<insert id="add" parameterType="PageIndex">
+		insert into pageIndex (<include refid="sqlColumns" />)
+		values ( #{id}, #{url}, #{content},#{offset},#{raws},#{createdTime},#{lastUpdatedTime})
+	</insert>
+
+    <select id="getById" parameterType="long" resultMap="PageIndexMap">
+        select
+        <include refid="sqlColumns" />
+        from pageIndex
+        where id=#{id}
+        limit 1
+    </select>
+
+    <select id="getByUrl" parameterType="String" resultMap="PageIndexMap">
+        select
+        <include refid="sqlColumns" />
+        from pageIndex
+        where url=#{url}
+        limit 1
+    </select>
+
+	<update id="update" parameterType="PageIndex">
+		update pageIndex
+		<set>
+			<if test="lastUpdatedTime != null">LastUpdatedTime = now(),</if>
+		</set>
+		where id=#{id}
+	</update>
+
+	<update id="deleteById" parameterType="long">
+		delete from pageIndex where id=#{id}
+	</update>
+</mapper>

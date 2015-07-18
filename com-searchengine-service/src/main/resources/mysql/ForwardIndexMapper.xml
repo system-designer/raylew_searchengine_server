@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.searchengine.dao.ForwardIndexDao">
+    <resultMap id="ForwardIndexMap" type="ForwardIndex">
+        <id property="id" column="id"/>
+        <result property="pid" column="pid"/>
+        <result property="wid" column="wid"/>
+        <result property="position" column="position"/>
+        <result property="matchTimes" column="matchTimes"/>
+        <result property="tfidf" column="tfidf"/>
+        <result property="createdTime" column="createdTime"/>
+        <result property="lastUpdatedTime" column="lastUpdatedTime"/>
+    </resultMap>
+    <resultMap id="WordDFMap" type="WordDF">
+        <id property="wordId" column="wordId"/>
+        <result property="docFrequency" column="docFrequency"/>
+    </resultMap>
+    <resultMap id="InvertedIndexMap" type="InvertedIndex">
+        <result property="pid" column="pid"/>
+        <result property="position" column="position"/>
+        <result property="tfidf" column="tfidf"/>
+    </resultMap>
+    <sql id="sqlColumns">
+		id,pid,wid,position,matchTimes,tfidf,createdTime,lastUpdatedTime
+	</sql>
+    <insert id="add" parameterType="ForwardIndex">
+        insert into ForwardIndex (<include refid="sqlColumns"/>)
+        values ( #{id}, #{pid}, #{wid},#{position},#{matchTimes},#{tfidf},#{createdTime},#{lastUpdatedTime})
+    </insert>
+
+    <select id="getById" parameterType="long" resultMap="ForwardIndexMap">
+        select
+        <include refid="sqlColumns"/>
+        from ForwardIndex
+        where id=#{id}
+        limit 1
+    </select>
+
+    <!--<include refid="sqlColumns" /> id,wid,matchTimes-->
+    <select id="getList" resultMap="ForwardIndexMap">
+		select id,pid,wid,tfidf
+		from ForwardIndex
+		where id >=(select id from forwardindex limit #{offset},1)
+		order by id
+		limit 0,#{pageSize}
+	</select>
+
+    <select id="getDistinctPidList" resultMap="ForwardIndexMap">
+		select distinct(pid)
+		from ForwardIndex
+		order by pid
+	</select>
+
+    <select id="getWordDFList" resultMap="WordDFMap">
+		select wid as wordId,count(pid)as docFrequency from forwardindex group by wid order by wordId
+	</select>
+
+    <select id="getListByWordIdList" resultMap="ForwardIndexMap">
+        select
+        <include refid="sqlColumns"/>
+        from ForwardIndex
+        where wid in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        order by matchTimes desc limit 0,10
+    </select>
+
+    <update id="update" parameterType="ForwardIndex">
+		update ForwardIndex SET
+		tfidf=#{tfidf},
+		lastUpdatedTime=now()
+		where id=#{id}
+	</update>
+
+    <update id="deleteById" parameterType="long">
+		delete from ForwardIndex where id=#{id}
+	</update>
+
+    <select id="getInvertedIndexList" resultMap="InvertedIndexMap">
+		select pid,position,tfidf from forwardindex where wid=#{wid}
+	</select>
+</mapper>

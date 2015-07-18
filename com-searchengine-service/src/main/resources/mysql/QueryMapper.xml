@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.searchengine.dao.QueryDao">
+	<resultMap id="QueryMap" type="Query">
+	    <id property="id" column="id" />
+	    <result property="content" column="content"/>
+		<result property="times" column="times"/>
+	    <result property="createdTime" column="createdTime"/>
+	</resultMap>
+	<sql id="sqlColumns">
+		id,content,times,createdTime
+	</sql>
+
+	<insert id="add" parameterType="Query">
+		insert into Query (<include refid="sqlColumns" />)
+		values (#{id}, #{content}, #{times},#{createdTime})
+	</insert>
+
+	<select id="get" resultMap="QueryMap">
+		select
+		<include refid="sqlColumns" />
+		from Query
+		where content=#{content}
+		limit 0,1
+	</select>
+
+	<select id="getList" resultMap="QueryMap">
+		select
+		<include refid="sqlColumns" />
+		from Query
+		order by createdTime desc
+		limit #{offset},#{size}
+	</select>
+
+	<select id="getCount" parameterType="Long" resultType="long">
+		select count(id) from Query
+	</select>
+</mapper>

@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Uploadify</title>
+    <script src="/static/js/jquery.uploadify/jquery-1.8.0.min.js"></script>
+    <script src="/static/js/jquery.uploadify/jquery.uploadify.min.js"></script>
+    <link href="/static/js/jquery.uploadify/uploadify.css" rel="stylesheet"/>
+    <script type="text/javascript">
+        $(function () {
+            $("#file_upload").uploadify({
+                height: 30,
+                swf: '/static/js/jquery.uploadify/uploadify.swf',
+                uploader: '/grade/uploadFile',
+                width: 120,
+                buttonText: "浏览",
+                onUploadSuccess: function (file, data, response) {
+                    alert(file);
+                    alert(data);
+                    alert(response);
+                    $("#p1").append(data);
+                    return;
+                    var strHtml = "<table border='1' width='100%'>";
+                    var result = eval("(" + data + ")");
+                    for (i = 0; i < result.length; i++) {
+                        strHtml += "<tr>";
+                        for (j = 0; j < result[i].length; j++) {
+                            strHtml += "<td>" + result[i][j] + "</td>";
+                        }
+                        strHtml += "</tr>"
+                    }
+                    strHtml += "</<table>";
+                    $("#p2").append(strHtml);
+                },
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="fileQueue"></div>
+<input type="file" name="file_upload" id="file_upload"/>
+<a href="/grade/uploadHandler/">Excel测试</a>
+
+<p id="p1">
+</p>
+
+<p id="p2">
+    $strHtml
+</p>
+</body>
+</html>

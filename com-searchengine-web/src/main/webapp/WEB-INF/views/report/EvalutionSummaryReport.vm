@@ -1,0 +1,222 @@
+#set($layout = "layout/layout_nobootstrap.vm")
+<link rel="stylesheet" type="text/css"	href="../../../static/css/reportl.css?v=201402910191" />
+ 			<div id="div_chart" style="text-align: center; height: 200px; border: 0px solid #ccc; padding: 10px; width: 400px;);"></div>
+			<div class="div_tab">
+				<div class="div_tabContent">
+					<a class="aTab selected" id="a1"
+						onclick="chooseinfo(0);return false;">评价详情</a><a class="aTab"
+						id="a2" onclick="chooseinfo(1); return false;">评语详情</a>
+				</div>  
+			</div>
+			<div id="div_Metric">
+				#foreach( $item in $data.lsMetricInfo)
+				<div class="divGroup">
+					#if($studentUserId!="" && $courseId !="") 
+					<div class="metricTextGroup">
+						<span style="font-size:20px;">$item.levelName</span><span style="float: right;"><a
+							class="metricTextCount badColor"> $item.evalTims</a> 次</span>
+					</div>
+					#else
+					<div class="divGroupTitle">$item.levelName ($item.evalTims)</div>
+					#foreach($onePersion in $item.lsData)
+					<div class="divItem">
+						<div class="divImg">$onePersion.evalTimes</div>
+						<div>
+							#if($onePersion.avatar!="")															
+								<img class="imgPicture" src="$imageUrl/$onePersion.avatar" />
+							#else							
+								<img class="imgPicture" src="../../static/images/avatar.png" />
+							#end
+							<div style="text-align: center;">
+								<span style="text-align: center;color:#34AED8">$onePersion.name</span>
+							</div>
+						</div>
+					</div>
+					#end #end
+				</div>
+				#end
+
+			</div>
+			<!-- 评语详情-->
+			<div id="div_Comment" class="div_commentFrame">
+				<div class="div_left" id="div_main"></div>
+				<div id="div_loading" style="margin:20px 0px 20px 0px auto;text-align:center;height:50px;line-height:50px;"><img src='../../../static/images/loading.gif' style='width:30px;height:40px;vertical-align:middle'/><span>努力加载中..</span></div>
+				<div id="div_showMore" style="cursor:pointer; margin:20px 0px 20px 0px auto;text-align:center;height:50px;line-height:50px;color:#aab2bd" onclick="loadData()">点击加载更多</div>				
+			</div>
+ <script type="text/javascript">
+	var classId="$classId";
+	var studentUserId="$studentUserId";
+	var teacherUserId="$teacherUserId";
+	var dateType="$dateType";
+	var courseId="$courseId";
+	var commentCount=0;
+	$("#div_chart").width($(window).width()-20);	
+	$("#div_chart").height(350);
+</script>
+<script src="../../../static/js/esl-min.js?v=20140905"></script>
+<script type="text/javascript" 	src="../../../static/js/report/EvalutionSummaryScrollReport.js?v=20140909"></script>
+
+#if($data.badTimes!=0 || $data.goodTimes!=0)
+<script type="text/javascript"> 		
+        require.config({
+            paths: {
+            		'echarts':'../../../static/js/echarts',
+             }
+        });      
+        require(
+            [
+                'echarts',
+                'echarts/chart/pie-min'
+            ],
+            function (ec) {
+                var myChart = ec.init(document.getElementById('div_chart'));
+                myChart.setOption({
+                    tooltip : {
+                        trigger: 'item'
+                    },
+                    legend: {
+                        orient : 'horizontal',
+                        x : 'center',
+                        y : 330,
+                        itemGap:50,
+                        padding:0,
+                        data:[
+                              {name:'激励次数' },
+                              {name:'指正次数'}
+                             ]
+                    },
+                    series : [
+                        {
+                            type:'pie',
+                            radius : ['80%', '40%'],
+                            data:[
+                                {value:$data.goodTimes, name:'激励次数',
+                                	itemStyle:{
+                                		normal:{
+                                			color: '#48cfad',
+                                			label:{
+	                                				show:true,
+	                                				position:'top',
+	                                				textStyle:{
+	                                				fontSize:20,
+	                                				color:"fff",
+	                                				fontWeight:"900",
+	                                				align:"center",
+	                                				baseline:"middle"
+                                				},
+                                				formatter:function(a,b,c){
+                                					if(c!=0)
+                                						return "+"+c;
+                                					else return "";
+                                				}
+                                			},
+                                			labelLine : {
+                                                show : false,
+                                                length:20,
+                                            }
+                                			},                                		
+                                	}
+                                },
+                                {value:$data.badTimes, name:'指正次数',
+                                	itemStyle:{
+                                		normal:{
+                                			color: '#ec87c0',
+                                			label:{
+                                				show:true,
+                                				position:'top',
+                                				textStyle:{
+                                				fontSize:20,
+                                				color:"fff",
+                                				fontWeight:"900",
+                                				align:"center",
+                            					baseline:"middle"
+                                				},
+                                				formatter:function(a,b,c){
+                                					if(c!=0)
+                                						return "-"+c;
+                                					else return "";
+                                				} 
+                                			},
+                                			labelLine : {
+                                                show : false,
+                                                length:20,
+
+                                            }
+                                			},   
+                                },
+                                }
+                            ]
+                        }
+                    ]
+                }
+        );
+            })
+    </script>
+#else
+ <script type="text/javascript"> 		
+        require.config({
+            paths: {
+            		'echarts':'../../../static/js/echarts',
+             }
+        });      
+        require(
+            [
+                'echarts',
+                'echarts/chart/pie-min'
+            ],
+            function (ec) {
+                var myChart = ec.init(document.getElementById('div_chart'));
+                myChart.setOption({
+                    tooltip : {
+                        trigger: 'item'
+                    },
+                    legend: {
+                        orient : 'horizontal',
+                        x : 'center',
+                        y : 330,
+                        itemGap:50,
+                        padding:0,
+                        data:[
+                              {name:'暂无数据' }                      
+                             ]
+                    },
+                    series : [
+                        {
+                            type:'pie',
+                            radius : ['80%', '40%'],
+                            data:[
+                                {value:100, name:'暂无数据',
+                                	itemStyle:{
+                                		normal:{
+                                			color: '#AAB1B7',
+                                			label:{
+	                                				show:false,
+	                                				position:'top',
+	                                				textStyle:{
+	                                				fontSize:20,
+	                                				color:"fff",
+	                                				fontWeight:"900",
+	                                				align:"center",
+	                                				baseline:"middle"
+                                				},
+                                				formatter:function(a,b,c){
+                                					if(c!=0)
+                                						return "+"+c;
+                                					else return "";
+                                				}
+                                			},
+                                			labelLine : {
+                                                show : false,
+                                                length:20,
+                                            }
+                                			},                                		
+                                	}
+                                }
+                            ]
+                        }
+                    ]
+                }
+        );
+            })
+    </script>
+#end

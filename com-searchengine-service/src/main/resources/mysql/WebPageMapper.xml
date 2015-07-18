@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.searchengine.dao.WebPageDao">
+    <resultMap id="WebPageMap" type="WebPage">
+        <id property="id" column="id"/>
+        <result property="url" column="url"/>
+        <result property="title" column="title"/>
+        <result property="charset" column="charset"/>
+        <result property="keywords" column="keywords"/>
+        <result property="description" column="description"/>
+        <result property="wordCount" column="wordCount"/>
+        <result property="domain" column="domain"/>
+        <result property="savePath" column="savePath"/>
+        <result property="rootDomain" column="rootDomain"/>
+        <result property="protocol" column="protocol"/>
+        <result property="contentMD5" column="contentMD5"/>
+        <result property="analyzed" column="analyzed"/>
+        <result property="createdTime" column="createdTime"/>
+        <result property="lastUpdatedTime" column="lastUpdatedTime"/>
+    </resultMap>
+    <resultMap id="WebsiteMap" type="Website">
+        <result property="domain" column="domain"/>
+        <result property="totalPages" column="totalPages"/>
+    </resultMap>
+    <sql id="sqlColumns">
+		id,url,title,charset,keywords,description,wordCount,domain,savePath,rootDomain,protocol,contentMD5,analyzed,createdTime,lastUpdatedTime
+	</sql>
+    <insert id="add" parameterType="WebPage">
+        insert into WebPage (<include refid="sqlColumns"/>)
+        values ( #{id}, #{url},
+        #{title},#{charset},#{keywords},#{description},#{wordCount},#{domain},#{savePath},#{rootDomain},#{protocol},
+        #{contentMD5},#{analyzed},#{createdTime},#{lastUpdatedTime})
+    </insert>
+
+    <select id="getById" parameterType="long" resultMap="WebPageMap">
+        select
+        <include refid="sqlColumns"/>
+        from WebPage
+        where id=#{id}
+        limit 1
+    </select>
+
+    <select id="getByUrl" parameterType="String" resultMap="WebPageMap">
+        select
+        <include refid="sqlColumns"/>
+        from WebPage
+        where url=#{url}
+        limit 1
+    </select>
+
+    <select id="getList" resultMap="WebPageMap">
+        select
+        <include refid="sqlColumns"/>
+        from WebPage
+        <if test="analyzed != null">
+            where analyzed=#{analyzed}
+        </if>
+    </select>
+
+    <select id="getListByIdList" resultMap="WebPageMap">
+        select
+        <include refid="sqlColumns"/>
+        from WebPage
+        where id in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+    <!--统计模块-->
+    <select id="getListBy" parameterType="map" resultMap="WebPageMap">
+        select
+        <include refid="sqlColumns"/>
+        from WebPage
+        ORDER by url asc,createdTime desc
+        limit #{offset},#{pageSize}
+    </select>
+
+    <!--网站分析模块-->
+    <select id="getListByDomain" parameterType="map" resultMap="WebPageMap">
+        select
+        <include refid="sqlColumns"/>
+        from WebPage
+        where rootDomain=#{domain}
+        ORDER by url asc,createdTime desc
+        limit #{offset},#{pageSize}
+    </select>
+
+    <!--已建立索引后但未标识的页面-->
+    <select id="getUnmarkedList" resultMap="WebPageMap">
+		select id,analyzed
+		from WebPage w
+		where w.analyzed =false and exists (select pid from forwardindex where pid=w.id) limit 0,100
+	</select>
+
+    <select id="getCount" resultType="long">
+		select count(id) from webpage
+	</select>
+
+    <update id="update" parameterType="WebPage">
+		update WebPage set
+		wordCount=#{wordCount}
+		where id=#{id}
+	</update>
+
+    <update id="deleteById" parameterType="long">
+		delete from WebPage where id=#{id}
+	</update>
+
+    <select id="getWebsiteList" resultMap="WebsiteMap">
+        select rootDomain as domain ,count(rootDomain) as totalPages
+        from webpage
+        <if test="domain != ''">
+            where rootDomain=#{domain}
+        </if>
+        group by rootDomain order by totalPages desc
+        limit #{offset},#{pageSize}
+    </select>
+
+    <select id="getWebsiteCount" resultType="Long">
+        select count(distinct(rootDomain)) from webpage
+    </select>
+</mapper>

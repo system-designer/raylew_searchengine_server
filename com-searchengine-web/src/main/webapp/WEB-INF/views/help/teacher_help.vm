@@ -1,0 +1,143 @@
+<div class="container">
+	<div class="row">
+	  	<div class="span12">
+			<div class="accordion" id="accordion2">
+				<div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+		                 	1、这一版本提供哪些主要功能？
+		                </a>
+		            </div>
+		            <div id="collapseOne" class="accordion-body collapse" style="height: 0px;">
+		            	<div class="accordion-inner">
+		            		1.	界面清爽，全新体验。<br>
+		            		2.	提供超酷，有爱的课程表，让你想不到课程表还可以这样看。<br>
+							3.	方便快速及多维度评价学生，在课上就可以完成对学生的评价。<br>
+							4.	随时随地了解老师对自己在校的评价。<br>
+							5.	每天都能了解学生在学校的表现，班级圈，作业，过评等多方面了解孩子的成长和学习。<br>
+							6.	零距离沟通：再也不用愁老师找不到家长的联系方式，家长没有老师的联系方式，而缺乏家长与老师之间的沟通。<br>
+							7.	分享学生在校的每一刻时光，留下校园独有的记忆。<br>
+							8.	第一时间作业即达学生，家长，家长可快速完成签收，监督孩子完成作业。<br>
+		            	</div>
+		             </div>
+		         </div>
+		         <div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+		                 	2、如何激活账号？
+		                </a>
+		            </div>
+		            <div id="collapseTwo" class="accordion-body collapse" style="height: 0px;">
+		            	<div class="accordion-inner">
+		            		在打开应用进入登陆界面时，点击“直接激活”，进入激活页面，输入线下学校分配的验证码，成功校验后，再次确认身份信息，则账号激活成功。<br>
+		            	</div>
+		             </div>
+		         </div>
+		         <div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+		                 	3、在课表中如何查看周课表？
+		                </a>
+		            </div>
+		            <div id="collapseThree" class="accordion-body collapse" style="height: 0px;">
+		            	<div class="accordion-inner">
+		            		手机横评时，自动转换为周课表视图。在横评时注意检查手机是否开启旋转模式，如关闭旋转模式，在手机设置中打开。<br>
+		            	</div>
+		             </div>
+		         </div>
+		         <div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+		                 	4、聊天时，无法发送消息或接收消息怎么办？
+		                </a>
+		            </div>
+		            <div id="collapseFour" class="accordion-body collapse" style="height: 0px;">
+		            	<div class="accordion-inner">
+		            		可能是由于您的手机当前网络不稳定导致的，建议检查您的网络信息，在稳定的网络环境下使用。如此问题出现时间较长，建议更换为WiFi下使用，如还未解决，可通过用户反馈将此问题反馈于我们，我们会第一时间回复您。<br>
+		            	</div>
+		             </div>
+		         </div>
+		         <div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
+		                 	5、如何找到好友进行聊天/打电话/发短信？
+		                </a>
+		            </div>
+		            <div id="collapseFive" class="accordion-body collapse" style="height: 0px;">
+		            	<div class="accordion-inner">
+		            		在消息，我的里面都可以查看到通讯录的入口，进入通讯录，查找到您的好友，点击好友，既可以查看好友信息页面，页面上有聊天/打电话/发短信的按钮。<br>
+		            	</div>
+		             </div>
+		         </div>
+		         <div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSix">
+		                 	6、密码忘记了怎么办？
+		                </a>
+		            </div>
+		            <div id="collapseSix" class="accordion-body collapse" style="height: 0px;">
+		            	<div class="accordion-inner">
+		            		登陆时忘记密码了，点击忘记密码链接，可通过您的手机号码重新设置新密码。<br>
+		            	</div>
+		             </div>
+		         </div>
+		         
+		         
+		         <div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSeven">
+		                 	7、如何给学生进行评价？和给学生写评语？
+		                </a>
+		            </div>
+		            <div id="collapseSeven" class="accordion-body collapse" style="height: 0px;">
+		            	<div class="accordion-inner">
+		            		入口1：课程表<br>
+								第一种方式：课程表-->课程详情-->上课模式-->选择学生-->评价<br>
+								第二种方式：课程表-->课程详情-->评价学生-->选择学生-->评价或写评语<br>
+							入口2：班级<br>
+								班级列表-->选择班级-->评价学生-->选择学生-->评价或写评语<br>
+		            	</div>
+		             </div>
+		         </div>
+		          <div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseEight">
+		                 	8、如何布置作业？作业需要家长签收如何操作？
+		                </a>
+		            </div>
+		            <div id="collapseEight" class="accordion-body collapse" style="height: 0px;">
+		            	<div class="accordion-inner">
+		            		布置作业，有两个入口都可以给班级布置作业。<br>
+								第一：课程表-->布置作业-->编辑作业-->发送<br>
+								第二：班级列表-->选择班级-->布置作业-->编辑作业-->发送<br>
+		            	</div>
+		             </div>
+		         </div>
+		         <div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseNine">
+		                 	9、如何查看评价报告数据？
+		                </a>
+		            </div>
+		            <div id="collapseNine" class="accordion-body collapse" style="height: 0px;">
+		            	<div class="accordion-inner">
+		            		可进入班级查看对该班级学生做的评价汇总数据，同时也可以通过我的里面查看评价整体数据。<br>
+		            	</div>
+		             </div>
+		         </div>
+		         <div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTen">
+		                 	10、激活码丢了，如何重新激活？
+		                </a>
+		            </div>
+		            <div id="collapseTen" class="accordion-body collapse" style="height: 0px;">
+		            	<div class="accordion-inner">
+		            		如果激活码丢失了，请联系学校管理员，重新分配激活码。使用新的激活码即可激活账号使用。<br>
+		            	</div>
+		             </div>
+		         </div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       default-lazy-init="false" default-autowire="byName"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="userInfoService" class="com.searchengine.service.impl.UserInfoServiceImpl"/>
+    <bean id="userPasswordService" class="com.searchengine.service.impl.UserPasswordServiceImpl"/>
+    <bean id="webPageService" class="com.searchengine.service.impl.WebPageServiceImpl"/>
+    <bean id="forwardIndexService" class="com.searchengine.service.impl.ForwardIndexServiceImpl"/>
+    <bean id="invertedIndexService" class="com.searchengine.service.impl.InvertedIndexServiceImpl"/>
+    <bean id="pageWordService" class="com.searchengine.service.impl.PageWordServiceImpl"/>
+    <bean id="wordService" class="com.searchengine.service.impl.WordServiceImpl"/>
+    <bean id="pageIndexService" class="com.searchengine.service.impl.PageIndexServiceImpl"/>
+    <bean id="queryService" class="com.searchengine.service.impl.QueryServiceImpl"/>
+    <bean id="userQueryService" class="com.searchengine.service.impl.UserQueryServiceImpl"/>
+
+    <bean id="idGeneratorWorker" class="com.searchengine.utils.IdGeneratorWorker" scope="singleton">
+        <constructor-arg index="0" value="${idGenerator.workerId}"/>
+    </bean>
+</beans>

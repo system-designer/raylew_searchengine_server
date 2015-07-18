@@ -1,0 +1,3 @@
+ <div id="div_chart" style="border: 0px solid #ccc; margin:0px auto;height:400px;">
+ 	<div style="text-align:center;margin:50px auto;"><img src="../../../static/images/down.png?v=$randomValue"/></div> 
+ </div>

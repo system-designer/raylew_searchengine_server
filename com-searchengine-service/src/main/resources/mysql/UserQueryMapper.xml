@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.searchengine.dao.UserQueryDao">
+	<resultMap id="UserQueryMap" type="UserQuery">
+	    <id property="id" column="id" />
+	    <result property="uid" column="uid"/>
+		<result property="qid" column="qid"/>
+	    <result property="createdTime" column="createdTime"/>
+	</resultMap>
+	<sql id="sqlColumns">
+		id,uid,qid,createdTime
+	</sql>
+
+	<insert id="add" parameterType="UserQuery">
+		insert into UserQuery (<include refid="sqlColumns" />)
+		values (#{id}, #{uid}, #{qid},#{createdTime})
+	</insert>
+
+	<select id="getList" parameterType="map" resultMap="UserQueryMap">
+		select
+		<include refid="sqlColumns" />
+		from UserQuery
+		where uid=#{uid}
+		order by createdTime desc
+		limit #{offset},#{size}
+	</select>
+
+	<select id="getHotQuery" parameterType="java.lang.String" resultMap="UserQueryMap">
+		select qid as id,content from userquery inner join query on userquery.qid=query.id
+		where userquery.createdTime >= #{date}
+		group by qid order by count(qid) desc
+		limit 0,10
+	</select>
+
+	<select id="getCount" parameterType="Long" resultType="long">
+		select count(id) from UserQuery where uid=#{uid}
+	</select>
+</mapper>

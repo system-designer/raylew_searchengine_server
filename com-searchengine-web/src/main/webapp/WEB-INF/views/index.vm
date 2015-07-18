@@ -1,0 +1,34 @@
+<header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="/index" class="navbar-brand">云校</a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="/index">首页</a>
+                </li>
+                <li>
+                    <a href="/help">帮助</a>
+                </li>
+                <li>
+                    <a href="/help">$test2</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div class="container">
+    <script type="text/javascript">
+        $().get(function () {
+            url: "http://server1.gotiku.com:8088/mapi/getList",
+                    data
+            :
+            {
+            }
+            ,
+            success: function (result) {
+            }
+        });
+    </script>
+</div>
